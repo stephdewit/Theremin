@@ -45,6 +45,8 @@ NSString *tSearchField = @"tSearchField";
 
 @implementation MainPlayerToolbarController
 
+@synthesize volume;
+
 - (id) init {
 	self = [super init];
 	if (self != nil) {
@@ -148,9 +150,10 @@ NSString *tSearchField = @"tSearchField";
 }
 
 - (void) volumeChanged:(NSNotification *)notification {
-	int volume = [[[notification userInfo] objectForKey:dVolume] intValue];
+	volume = [[[notification userInfo] objectForKey:dVolume] intValue];
 	
 	if ([[[NSRunLoop currentRunLoop] currentMode] isEqualTo:NSEventTrackingRunLoopMode] == YES) {
+		NSLog(@"Volume slider is out of sync");
 		return;
 	}
 	

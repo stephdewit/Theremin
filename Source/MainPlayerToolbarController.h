@@ -26,10 +26,13 @@
 	UnifiedToolbarItem *_playerItem, *_stopItem, *_shuffleItem;
 	NSMutableDictionary *_toolbarItems;
 	PWVolumeSlider *_volumeSlider;
-	PWMusicSearchField *_musicSearch;	
+	PWMusicSearchField *_musicSearch;
+	int volume;
 }
 
 - (PWMusicSearchField *)musicSearchField;
 - (NSToolbar *)toolbar;
 - (PWVolumeSlider *)volumeSlider;
+
+@property(assign, nonatomic) int volume;
 @end
